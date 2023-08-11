@@ -17,6 +17,7 @@ import (
 	. "github.com/flant/shell-operator/pkg/kube_events_manager/types"
 	"github.com/flant/shell-operator/pkg/metric_storage"
 	"github.com/flant/shell-operator/pkg/utils/measure"
+	"github.com/flant/shell-operator/pkg/app"
 )
 
 // ResourceInformer is a kube informer for particular onKubernetesEvent
@@ -270,6 +271,9 @@ func (ei *resourceInformer) OnAdd(obj interface{}) {
 }
 
 func (ei *resourceInformer) OnUpdate(_, newObj interface{}) {
+	if app.StatusAnnotationPrefix != "" {
+		fmt.Println(app.StatusAnnotationPrefix)
+	}
 	ei.HandleWatchEvent(newObj, WatchEventModified)
 }
 

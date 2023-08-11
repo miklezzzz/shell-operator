@@ -2,6 +2,7 @@ package app
 
 import (
 	"fmt"
+	"os"
 
 	"gopkg.in/alecthomas/kingpin.v2"
 )
@@ -24,6 +25,10 @@ var (
 	ListenAddress         = "0.0.0.0"
 	ListenPort            = "9115"
 	HookMetricsListenPort = ""
+)
+
+var (
+	StatusAnnotationPrefix = os.Getenv("SHELL_OPERATOR_STATUS_ANNOTATION_PREFIX")
 )
 
 var PrometheusMetricsPrefix = "shell_operator_"
