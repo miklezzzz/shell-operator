@@ -33,6 +33,8 @@ require (
 // Remove 'in body' from errors, fix for Go 1.16 (https://github.com/go-openapi/validate/pull/138).
 replace github.com/go-openapi/validate => github.com/flant/go-openapi-validate v0.19.12-flant.0
 
+require github.com/flant/shell-operator v1.3.2
+
 require (
 	cloud.google.com/go v0.97.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
@@ -78,7 +80,6 @@ require (
 	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.42.0 // indirect
 	github.com/prometheus/procfs v0.10.1 // indirect
-	github.com/rogpeppe/go-internal v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	go.mongodb.org/mongo-driver v1.5.4 // indirect
 	golang.org/x/net v0.12.0 // indirect
