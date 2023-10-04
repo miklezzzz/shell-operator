@@ -21,6 +21,7 @@ import (
 	"github.com/flant/shell-operator/pkg/metric_storage/operation"
 	. "github.com/flant/shell-operator/pkg/webhook/admission/types"
 	"github.com/flant/shell-operator/pkg/webhook/conversion"
+	utils "github.com/flant/shell-operator/pkg/utils/labels"
 )
 
 type CommonHook interface {
@@ -162,7 +163,8 @@ func (h *Hook) Run(_ BindingType, context []BindingContext, logLabels map[string
 	if err != nil {
 		return result, fmt.Errorf("can't read object patch file: %s", err)
 	}
-	fmt.Println(result.KubernetesPatchBytes)
+	logEntry := log.WithFields(utils.LabelsToLogFields(logLabels))
+	logEntry.Infof("KubernetesPatchBytes %s", result.KubernetesPatchBytes)
 
 	return result, nil
 }
