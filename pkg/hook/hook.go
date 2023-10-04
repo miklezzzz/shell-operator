@@ -22,6 +22,8 @@ import (
 	. "github.com/flant/shell-operator/pkg/webhook/admission/types"
 	"github.com/flant/shell-operator/pkg/webhook/conversion"
 	utils "github.com/flant/shell-operator/pkg/utils/labels"
+
+	log "github.com/sirupsen/logrus"
 )
 
 type CommonHook interface {
