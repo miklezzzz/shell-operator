@@ -162,6 +162,7 @@ func (h *Hook) Run(_ BindingType, context []BindingContext, logLabels map[string
 	if err != nil {
 		return result, fmt.Errorf("can't read object patch file: %s", err)
 	}
+	fmt.Println(result.KubernetesPatchBytes)
 
 	return result, nil
 }
