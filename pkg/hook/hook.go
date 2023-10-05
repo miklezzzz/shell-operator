@@ -22,8 +22,6 @@ import (
 	. "github.com/flant/shell-operator/pkg/webhook/admission/types"
 	"github.com/flant/shell-operator/pkg/webhook/conversion"
 	utils "github.com/flant/shell-operator/pkg/utils/labels"
-
-	log "github.com/sirupsen/logrus"
 )
 
 type CommonHook interface {
@@ -115,6 +113,8 @@ func (h *Hook) Run(_ BindingType, context []BindingContext, logLabels map[string
 		return nil, err
 	}
 
+	return nil, fmt.Errorf("FAKE HOOK ERROR FROM SHELL")
+
 	// remove tmp file on hook exit
 	defer func() {
 		if app.DebugKeepTmpFiles != "yes" {
@@ -165,8 +165,6 @@ func (h *Hook) Run(_ BindingType, context []BindingContext, logLabels map[string
 	if err != nil {
 		return result, fmt.Errorf("can't read object patch file: %s", err)
 	}
-	logEntry := log.WithFields(utils.LabelsToLogFields(logLabels))
-	logEntry.Infof("KubernetesPatchBytes %s", result.KubernetesPatchBytes)
 
 	return result, nil
 }
