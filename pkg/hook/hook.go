@@ -21,7 +21,6 @@ import (
 	"github.com/flant/shell-operator/pkg/metric_storage/operation"
 	. "github.com/flant/shell-operator/pkg/webhook/admission/types"
 	"github.com/flant/shell-operator/pkg/webhook/conversion"
-	utils "github.com/flant/shell-operator/pkg/utils/labels"
 )
 
 type CommonHook interface {
